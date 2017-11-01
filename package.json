@@ -13,6 +13,6 @@
 		"tape":		"4.6.2"
 	},
 	"scripts": {
-		"postinstall": "gmake $(eval echo ${MAKE_OVERRIDES})"
+		"postinstall": "node -e 'if(require(\"os\").platform() === \"linux\") process.exit(1)';  if [ $? -eq 0 ]; then gmake $(eval echo ${MAKE_OVERRIDES}); fi"
 	}
 }
